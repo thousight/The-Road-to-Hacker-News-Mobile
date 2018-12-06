@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "es2015",
+    "module": "commonjs",
     "outDir": "build/dist",
     "sourceMap": true,
     "jsx": "react",
@@ -10,7 +10,8 @@
       "es2017"
     ],
     "moduleResolution": "node",
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
       "./src/**/*",

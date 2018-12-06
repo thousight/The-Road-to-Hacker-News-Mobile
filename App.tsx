@@ -1,21 +1,18 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { Text } from 'react-native';
-import styled from './src/styled-components';
-
-const Container = styled.View`
-  flex: 1,
-  background-color: '#FFFFFF',
-  align-items: 'center',
-  justify-content: 'center',
-`
+import { Text, SafeAreaView } from 'react-native';
+import { List, InputItem, Button } from 'antd-mobile-rn';
 
 export default class App extends Component {
   render() {
     return (
-      <Container>
+      <SafeAreaView>
         <Text>Open up App.js to start working on your app!</Text>
-      </Container>
+        <List>
+          <InputItem />
+          <Button>Apply</Button>
+        </List>
+      </SafeAreaView>
     );
   }
 }
