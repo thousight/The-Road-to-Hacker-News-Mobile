@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "TheRoadToHackerNewsMobile",
+    "name": "The Road To Hacker News Mobile",
     "description": "This project is really great.",
     "slug": "TheRoadToHackerNewsMobile",
     "privacy": "public",
@@ -23,5 +23,6 @@
     "ios": {
       "supportsTablet": true
     }
+    
   }
 }
