@@ -1,21 +1,34 @@
-import * as React from 'react';
-import { Component } from 'react';
-import { SafeAreaView, Platform } from 'react-native';
-import { SearchBar } from 'antd-mobile-rn';
+import * as React from 'react'
+import { Component } from 'react'
+import { SafeAreaView } from 'react-native'
+import { Formik, Field } from 'formik'
 import { Constants } from 'expo'
 
+import FormikInput from './FormikInput'
+
+interface SearchFormValues {
+  search: string
+}
+
+const SearchInitialValue = { search: '' }
+
 export default class Search extends Component {
+  handleSearchSubmit = (values: SearchFormValues) => {
+    console.log(values)
+  }
+
   render() {
-    const isShowCancelButton = Platform.OS === 'android';
-    console.log(isShowCancelButton);
-  
     return (
       <SafeAreaView style={{ paddingTop: Constants.statusBarHeight }}>
-        <SearchBar
-          showCancelButton={isShowCancelButton}
-          cancelText="Clear"
-        />
+        <Formik
+          initialValues={SearchInitialValue}
+          onSubmit={this.handleSearchSubmit}
+        >
+          {() => (
+              <Field name="search" component={FormikInput} />
+          )}
+        </Formik>
       </SafeAreaView>
-    );
+    )
   }
 }
