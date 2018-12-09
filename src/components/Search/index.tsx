@@ -1,10 +1,15 @@
 import * as React from "react";
 import { Component } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { Formik, FormikProps } from "formik";
 import { Constants } from "expo";
-import { InputItem, Button, List } from "antd-mobile-rn";
-
+// import { InputItem, Button, List } from "antd-mobile-rn";
+import {
+  FormLabel,
+  FormInput,
+  FormValidationMessage,
+  Button
+} from "react-native-elements";
 interface SearchFormValues {
   search: string;
 }
@@ -27,25 +32,22 @@ export default class Search extends Component {
             values,
             handleChange,
             handleBlur,
-            handleSubmit
+            handleSubmit,
+            error
           }: FormikProps<SearchFormValues>) => (
-            <List>
-              <InputItem
-                value={values.search}
-                onChange={handleChange("search")}
+            <View>
+              <FormLabel>Search</FormLabel>
+              <FormInput
+                onChangeText={handleChange('search')}
                 onBlur={handleBlur}
-                placeholder="Search"
-                defaultValue={SearchInitialValue.search}
-                extra={
-                <Button
-                  onClick={handleSubmit}
-                  type="primary"
-                >
-                  Search
-                </Button>
-              }
+                value={values.search}
               />
-            </List>
+              <FormValidationMessage>{error}</FormValidationMessage>
+              <Button
+                title="Search"
+                onPress={handleSubmit}
+              />
+            </View>
           )}
         </Formik>
       </SafeAreaView>
