@@ -1,11 +1,19 @@
 import * as React from "react";
 import { Component } from "react";
-import { SafeAreaView } from "react-native";
 import { Formik, FormikProps } from "formik";
 import { Constants } from "expo";
 // import { InputItem, Button, List } from "antd-mobile-rn";
-import { Form, Item, Input, Button, Text, Container } from "native-base";
-import theme from '../../../native-base-theme/variables/platform';
+import {
+  Form,
+  Item,
+  Input,
+  Button,
+  Text,
+  Container,
+  StyleProvider
+} from "native-base";
+import getStyle from "../../../native-base-theme/components";
+import theme from "../../../native-base-theme/variables/platform";
 
 interface SearchFormValues {
   search: string;
@@ -20,35 +28,37 @@ export default class Search extends Component {
 
   render() {
     return (
-      <Container theme={theme} style={{ paddingTop: Constants.statusBarHeight }}>
-        <Formik
-          initialValues={SearchInitialValue}
-          onSubmit={this.handleSearchSubmit}
-        >
-          {({
-            values,
-            handleChange,
-            handleBlur,
-            handleSubmit
-          }: FormikProps<SearchFormValues>) => (
-            <Form>
-              <Item>
-                <Input
-                  placeholder="Search"
-                  onChange={handleChange('search')}
-                  handleBlur={handleBlur('search')}
-                  value={values.search}
-                />
-              </Item>
-              <Item>
-                <Button onPress={handleSubmit}>
-                  <Text>Search</Text>
-                </Button>
-              </Item>
-            </Form>
-          )}
-        </Formik>
-      </Container>
+      <StyleProvider style={getStyle(theme)}>
+        <Container style={{ paddingTop: Constants.statusBarHeight }}>
+          <Formik
+            initialValues={SearchInitialValue}
+            onSubmit={this.handleSearchSubmit}
+          >
+            {({
+              values,
+              handleChange,
+              handleBlur,
+              handleSubmit
+            }: FormikProps<SearchFormValues>) => (
+              <Form>
+                <Item>
+                  <Input
+                    placeholder="Search"
+                    onChange={handleChange("search")}
+                    handleBlur={handleBlur("search")}
+                    value={values.search}
+                  />
+                </Item>
+                <Item>
+                  <Button onPress={handleSubmit}>
+                    <Text>Search</Text>
+                  </Button>
+                </Item>
+              </Form>
+            )}
+          </Formik>
+        </Container>
+      </StyleProvider>
     );
   }
 }

@@ -4,7 +4,6 @@ import { Container, Content } from "native-base";
 import { Font, AppLoading } from "expo";
 
 import Search from "./src/components/Search";
-import theme from './native-base-theme/variables/platform';
 
 export default class App extends Component {
   state = {
@@ -26,7 +25,7 @@ export default class App extends Component {
     }
 
     return (
-      <Container theme={theme}>
+      <Container>
         <Content>
           <Search />
         </Content>
