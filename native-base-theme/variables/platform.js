@@ -38,6 +38,7 @@ export default {
   iconSizeSmall: 18,
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
+  cardBorderRadius: 12,
   CheckboxRadius: 6,
   CheckboxBorderWidth: 2,
   CheckboxPaddingLeft: 0,

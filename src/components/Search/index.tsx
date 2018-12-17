@@ -3,14 +3,7 @@ import { Component } from "react";
 import { Formik, FormikProps } from "formik";
 import { Constants } from "expo";
 // import { InputItem, Button, List } from "antd-mobile-rn";
-import {
-  Form,
-  Item,
-  Input,
-  Button,
-  Text,
-  Container
-} from "native-base";
+import { Form, Item, Input, Button, Text, Card, Container } from "native-base";
 
 interface SearchFormValues {
   search: string;
@@ -25,7 +18,8 @@ export default class Search extends Component {
 
   render() {
     return (
-        <Container style={{ paddingTop: Constants.statusBarHeight }}>
+      <Container style={{ paddingTop: Constants.statusBarHeight }}>
+        <Card>
           <Formik
             initialValues={SearchInitialValue}
             onSubmit={this.handleSearchSubmit}
@@ -53,7 +47,8 @@ export default class Search extends Component {
               </Form>
             )}
           </Formik>
-        </Container>
+        </Card>
+      </Container>
     );
   }
 }

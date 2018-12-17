@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { Container, Content, StyleProvider } from "native-base";
+import { StyleProvider } from "native-base";
 import { Font, AppLoading } from "expo";
 
 import Search from "./src/components/Search";
@@ -28,11 +28,7 @@ export default class App extends Component {
 
     return (
       <StyleProvider style={getStyle(theme)}>
-        <Container>
-          <Content>
-            <Search />
-          </Content>
-        </Container>
+        <Search />
       </StyleProvider>
     );
   }
