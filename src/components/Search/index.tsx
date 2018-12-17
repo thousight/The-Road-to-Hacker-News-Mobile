@@ -4,7 +4,8 @@ import { SafeAreaView } from "react-native";
 import { Formik, FormikProps } from "formik";
 import { Constants } from "expo";
 // import { InputItem, Button, List } from "antd-mobile-rn";
-import { Form, Item, Input, Button, Text } from "native-base";
+import { Form, Item, Input, Button, Text, Container } from "native-base";
+import theme from '../../../native-base-theme/variables/platform';
 
 interface SearchFormValues {
   search: string;
@@ -19,7 +20,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <SafeAreaView style={{ paddingTop: Constants.statusBarHeight }}>
+      <Container theme={theme} style={{ paddingTop: Constants.statusBarHeight }}>
         <Formik
           initialValues={SearchInitialValue}
           onSubmit={this.handleSearchSubmit}
@@ -47,7 +48,7 @@ export default class Search extends Component {
             </Form>
           )}
         </Formik>
-      </SafeAreaView>
+      </Container>
     );
   }
 }

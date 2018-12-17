@@ -11,10 +11,12 @@
     ],
     "moduleResolution": "node",
     "strict": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false
   },
   "include": [
-      "./src/**/*",
+      "./src/**/*.ts",
+      "./src/**/*.tsx",
       "./*.tsx",
       "./*.ts"
   ]
