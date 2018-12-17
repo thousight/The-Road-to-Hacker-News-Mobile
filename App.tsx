@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Component } from "react";
-import { Container, Content } from "native-base";
+import { Container, Content, StyleProvider } from "native-base";
 import { Font, AppLoading } from "expo";
 
 import Search from "./src/components/Search";
 
+import getStyle from "./native-base-theme/components";
+import theme from "./native-base-theme/variables/platform";
 export default class App extends Component {
   state = {
     loading: true
@@ -25,11 +27,13 @@ export default class App extends Component {
     }
 
     return (
-      <Container>
-        <Content>
-          <Search />
-        </Content>
-      </Container>
+      <StyleProvider style={getStyle(theme)}>
+        <Container>
+          <Content>
+            <Search />
+          </Content>
+        </Container>
+      </StyleProvider>
     );
   }
 }

@@ -9,11 +9,8 @@ import {
   Input,
   Button,
   Text,
-  Container,
-  StyleProvider
+  Container
 } from "native-base";
-import getStyle from "../../../native-base-theme/components";
-import theme from "../../../native-base-theme/variables/platform";
 
 interface SearchFormValues {
   search: string;
@@ -28,7 +25,6 @@ export default class Search extends Component {
 
   render() {
     return (
-      <StyleProvider style={getStyle(theme)}>
         <Container style={{ paddingTop: Constants.statusBarHeight }}>
           <Formik
             initialValues={SearchInitialValue}
@@ -58,7 +54,6 @@ export default class Search extends Component {
             )}
           </Formik>
         </Container>
-      </StyleProvider>
     );
   }
 }
